@@ -13,6 +13,8 @@ const configObj = {
   skip_empty_lines : true
 }
 parse(csvDataString, configObj, (err, data)=>{
-  console.log(data);
+  const jsonDataString = JSON.stringify(data, null, 3)
+  console.log('Writing File...');
+  fs.writeFileSync(`${__dirname}/json/output.json`, jsonDataString, 'utf8' )
   return data
 })
